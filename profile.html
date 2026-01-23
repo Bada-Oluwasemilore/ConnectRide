@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ConnectRide | Profile</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav class="navbar"><div class="logo" onclick="window.location.href='index.html'">Connect<span>Ride</span></div><div id="auth-button-container"></div></nav>
+
+  <div class="about-container" style="padding: 50px 20px;">
+    <div class="about-card" style="background:#000; color:#fff; display:flex; align-items:center; gap:20px; text-align:left;">
+      <i class="fa-solid fa-user-shield" style="font-size: 50px; color: #4caf50;"></i>
+      <div>
+        <h2 id="u-name">User Profile</h2>
+        <p id="u-email" style="opacity: 0.7;"></p>
+      </div>
+    </div>
+
+   <div class="about-grid">
+  <div class="about-card">
+    <h3><i class="fa-solid fa-car"></i> Current Trip</h3>
+    <div id="new-booking"></div> </div>
+  
+  <div class="about-card">
+    <h3><i class="fa-solid fa-clock-rotate-left"></i> History</h3>
+    <div class="history-item"></div>
+      <strong>Sarah J. (Honda)</strong>
+    <div class="star-rating" id="live-rating">
+    <i class="fa-regular fa-star" onclick="setRating(1)"></i>
+    <i class="fa-regular fa-star" onclick="setRating(2)"></i>
+    <i class="fa-regular fa-star" onclick="setRating(3)"></i>
+    <i class="fa-regular fa-star" onclick="setRating(4)"></i>
+    <i class="fa-regular fa-star" onclick="setRating(5)"></i>
+</div>
+    </div>
+  </div>
+</div>
+  </div>
+<script src="script.js"></script>
+</body>
+</html>
