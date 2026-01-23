@@ -425,3 +425,47 @@ html {
     padding: 20px;
     border-top: 1px solid #eee;
 }
+
+.tech-stack {
+    margin-top: 80px;
+    overflow: hidden;
+    padding: 40px 0;
+}
+
+.slider {
+    background: #111;
+    box-shadow: 0 10px 20px -5px rgba(0, 0, 0, .125);
+    height: 100px;
+    margin: auto;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+}
+
+.slide-track {
+    animation: scroll 20s linear infinite;
+    display: flex;
+    width: calc(250px * 10); /* Total width = slide width * number of slides */
+}
+
+.slide {
+    height: 100px;
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-size: 40px;
+}
+
+.slide span {
+    font-size: 14px;
+    color: #888;
+    font-weight: 600;
+}
+
+@keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(calc(-250px * 5)); } /* Scroll by half the slides */
+}
