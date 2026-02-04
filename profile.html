@@ -1,43 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>ConnectRide | Profile</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <title>My Profile | ConnectRide</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
-<body>
-  <nav class="navbar"><div class="logo" onclick="window.location.href='index.html'">Connect<span>Ride</span></div><div id="auth-button-container"></div></nav>
+<body style="min-height: 100vh;">
 
-  <div class="about-container" style="padding: 50px 20px;">
-    <div class="about-card" style="background:#000; color:#fff; display:flex; align-items:center; gap:20px; text-align:left;">
-      <i class="fa-solid fa-user-shield" style="font-size: 50px; color: #4caf50;"></i>
-      <div>
-        <h2 id="u-name">User Profile</h2>
-        <p id="u-email" style="opacity: 0.7;"></p>
-      </div>
+<body class="profile-page-body">
+    <nav class="navbar">
+        <a href="index.html" class="logo">Connect<span>Ride</span></a>
+        <div class="nav-links">
+            <a href="find-ride.html" class="nav-btn">Find Ride</a>
+            <a href="about.html" class="nav-btn">About</a> 
+            <a href="about-founder.html" class="nav-btn">The Founder</a>
+            <a href="faq.html" class="nav-btn">FAQ</a>
+            <a href="contact.html" class="nav-btn">Contact</a>
+            <div id="auth-button-container"></div>
+        </div>
+    </nav>
+
+    <div class="profile-wrapper">
+        <div class="profile-header-card">
+            <div class="profile-pic-container">
+                <img id="profile-pic" src="" alt="Profile" style="width:80px; height:80px; border-radius:50%; cursor:pointer;">
+                <input type="file" id="pic-input" accept="image/*" style="display:none;">
+            </div>
+            <div class="profile-info">
+                <h2 id="u-name-display">User Name</h2>
+                <input type="text" id="u-name-input" style="display:none; width:100%; margin-bottom:10px; padding:8px; border:1px solid #ccc; border-radius:5px;">
+                <p id="u-email-display">email@example.com</p>
+                <input type="email" id="u-email-input" style="display:none; width:100%; margin-bottom:10px; padding:8px; border:1px solid #ccc; border-radius:5px;">
+                <p>Premium Member</p>
+                <button id="edit-btn" class="btn-hero" style="margin-top:10px; padding:8px 16px;">Edit Profile</button>
+                <button id="save-btn" class="btn-hero" style="display:none; margin-top:10px; padding:8px 16px;">Save</button>
+                <button id="cancel-btn" class="btn-hero secondary" style="display:none; margin-top:10px; padding:8px 16px;">Cancel</button>
+            </div>
+        </div>
+
+        <div class="about-grid">
+            <div class="about-card">
+                <h3>Active Booking</h3>
+                <p id="booking-status" style="color: #555;">No active rides at the moment.</p>
+            </div>
+            <div class="about-card">
+                <h3>Total Saved</h3>
+                <div id="saved-details" style="color: #555;"></div>
+                <button id="report-history-btn" class="btn-hero" style="margin-top:12px; display:none;">Report From Previous Rides</button>
+            </div>
+        </div>
     </div>
 
-   <div class="about-grid">
-  <div class="about-card">
-    <h3><i class="fa-solid fa-car"></i> Current Trip</h3>
-    <div id="new-booking"></div> </div>
-  
-  <div class="about-card">
-    <h3><i class="fa-solid fa-clock-rotate-left"></i> History</h3>
-    <div class="history-item"></div>
-      <strong>Sarah J. (Honda)</strong>
-    <div class="star-rating" id="live-rating">
-    <i class="fa-regular fa-star" onclick="setRating(1)"></i>
-    <i class="fa-regular fa-star" onclick="setRating(2)"></i>
-    <i class="fa-regular fa-star" onclick="setRating(3)"></i>
-    <i class="fa-regular fa-star" onclick="setRating(4)"></i>
-    <i class="fa-regular fa-star" onclick="setRating(5)"></i>
-</div>
+    <!-- Report Modal (hidden) -->
+    <div id="report-modal-backdrop" style="display:none;">
+        <div id="report-modal">
+            <h2>Report an Issue or Lost Item</h2>
+            <form id="report-form" class="contact-form" action="https://formspree.io/f/YOUR_ID" method="POST">
+                <input type="text" id="report-name" name="name" placeholder="Your Name" required>
+                <input type="email" id="report-email" name="email" placeholder="Email Address" required>
+                <label for="report-ride-select" style="display:block; margin-bottom:8px; font-weight:600; color:#555;">Select Ride</label>
+                <select id="report-ride-select" name="rideInfo" required style="width:100%; padding:10px; margin-bottom:10px; border-radius:8px; border:1px solid #ddd; background:#f9f9f9;">
+                    <option value="">-- Select a ride --</option>
+                </select>
+                <textarea id="report-message" name="message" rows="5" placeholder="Describe the issue or lost item" required></textarea>
+                <div style="display:flex; gap:10px;">
+                    <button type="submit" class="btn-hero">Send Report</button>
+                    <button type="button" id="report-cancel" class="btn-hero secondary">Cancel</button>
+                </div>
+            </form>
+        </div>
     </div>
-  </div>
-</div>
-  </div>
-<script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
-</html>

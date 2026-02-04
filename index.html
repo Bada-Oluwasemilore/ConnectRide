@@ -1,190 +1,49 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>ConnectRide | Premium Mobility</title>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
-    />
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <nav class="navbar">
-      <a href="index.html" class="logo">Connect<span>Ride</span></a>
-      <div class="nav-links">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ConnectRide | Share Your Journey</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="no-v-scroll">
+   <nav class="navbar">
+    <div class="logo-wrapper">
+        <a href="index.html" class="logo">Connect<span>Ride</span></a>
+        <p class="logo-subtext">+234 800 123 4567</p>
+    </div>
+    
+    <div class="nav-links">
         <a href="find-ride.html" class="nav-btn">Find Ride</a>
-        <a href="javascript:void(0)" class="nav-btn" onclick="openOfferModal()"
-          >Offer Ride</a
-        >
-        <a href="#about-us" class="nav-btn">About</a>
-        <div id="auth-button-container">
-          <a href="login.html"
-            ><button
-              class="btn-hero"
-              style="padding: 10px 25px; font-size: 14px"
-            >
-              Join Now
-            </button></a
-          >
-        </div>
-      </div>
-    </nav>
+        <a href="about.html" class="nav-btn">About</a> 
+        <a href="about-founder.html" class="nav-btn">The Founder</a>
+        <a href="faq.html" class="nav-btn">FAQ</a>
+        <a href="contact.html" class="nav-btn">Contact</a>
+        <div id="auth-button-container"></div>
+    </div>
+  </nav>
 
     <header class="hero-section">
-      <div class="slides">
-        <div class="slide slide-1"></div>
-        <div class="slide slide-2"></div>
-        <div class="slide slide-3"></div>
-      </div>
-
-      <div class="hero-overlay-content">
-        <h1>Share Rides. Save Money. Protect the Planet.</h1>
-        <p>Join ConnectRide today and transform your daily commute.</p>
-        <a href="login.html"><button class="btn-hero">Get Started</button></a>
-      </div>
-
-      <div class="dots">
-        <span class="dot active" onclick="manualMove(0)"></span>
-        <span class="dot" onclick="manualMove(1)"></span>
-        <span class="dot" onclick="manualMove(2)"></span>
-      </div>
+        <div class="slides">
+            <div class="slide slide-1"></div>
+            <div class="slide slide-2"></div>
+            <div class="slide slide-3"></div>
+        </div>
+        <div class="hero-overlay-content">
+            <h1>Your Journey, <br>Shared Better.</h1>
+            <p>Connect with trusted drivers and save on your daily commute.</p>
+            <a href="find-ride.html" class="btn-hero">Explore Rides</a>
+        </div>
+        <div class="dots">
+            <span class="dot active" onclick="moveSlide(0)"></span>
+            <span class="dot" onclick="moveSlide(1)"></span>
+            <span class="dot" onclick="moveSlide(2)"></span>
+        </div>
     </header>
 
-    <section id="about-us" class="about-section">
-      <div class="about-intro">
-        <h2>Pioneering a New Era of Mobility</h2>
-        <p>
-          At ConnectRide, we believe transportation is about building a
-          sustainable future. Every empty seat is an opportunity to connect,
-          save, and protect our environment. By providing a means by which
-          commuters headed in the same direction can share rides, we reduce
-          traffic congestion and lower carbon emissions while also connecting
-          potential friends and soulmates. Join us in transforming urban
-          mobility, one ride at a time.
-        </p>
-        <div style="display: block; margin-top: 20px;">
-        <a href="about-founder.html">
-        <button class="btn-hero" style="background: transparent; border: 2px solid #4caf50; color: #4caf50; min-width: 200px; font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">
-            Read My Story
-        </button>
-        </a>
-      </div>
-      </div>
-      <div class="about-grid">
-        <div class="about-card">
-          <i class="fa-solid fa-car-side"></i>
-          <h3>Community Savings</h3>
-          <p>
-            By pooling resources, our members report saving up to ₦150,000
-            monthly on commuting expenses.
-          </p>
-        </div>
-        <div class="about-card">
-          <i class="fa-solid fa-shield-halved"></i>
-          <h3>The Safety Standard</h3>
-          <p>
-            Our safety suite includes real-time ride tracking, ID verification,
-            and peer-reviewed ratings.
-          </p>
-        </div>
-        <div class="about-card">
-          <i class="fa-solid fa-leaf"></i>
-          <h3>Environmental Mission</h3>
-          <p>
-            Filling empty seats means fewer cars on the road. We aim to reduce
-            CO2 emissions by 25% by 2028.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section class="faq-section">
-      <h2
-        style="
-          font-size: 36px;
-          font-weight: 900;
-          margin-bottom: 40px;
-          text-align: center;
-        "
-      >
-        Frequently Asked Questions
-      </h2>
-      <div class="faq-container">
-        <div class="faq-item">
-          <div class="faq-question">
-            How are drivers verified? <i class="fa-solid fa-chevron-down"></i>
-          </div>
-          <div class="faq-answer">
-            Drivers must provide a valid Government ID, vehicle registration,
-            and undergo face-to-face screening.
-          </div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-question">
-            How do I pay for my ride? <i class="fa-solid fa-chevron-down"></i>
-          </div>
-          <div class="faq-answer">
-            Payments are handled securely via our in-app wallet via bank
-            transfer or card.
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="contact" class="contact-page-wrapper">
-      <div class="contact-layout">
-        <div class="contact-details">
-          <h2 style="color: #4caf50; font-size: 48px; margin-bottom: 20px">
-            Let's Connect
-          </h2>
-          <p style="margin-bottom: 40px; color: #aaa">
-            Our support team is available 24/7 for you.
-          </p>
-          <div class="contact-item">
-            <i class="fa-solid fa-envelope"></i>
-            <div>
-              <h4>Email Support</h4>
-              <span>bada6636@gmail.com</span>
-            </div>
-          </div>
-          <div class="contact-item">
-            <i class="fa-solid fa-phone-volume"></i>
-            <div>
-              <h4>24/7 Hotline</h4>
-              <span>+234 811 577 4182</span>
-            </div>
-          </div>
-        </div>
-      <div class="contact-form-card">
-    <h3>Direct Message</h3>
-    <p style="opacity: 0.7; margin-bottom: 30px">
-        Have questions or feedback? Send us a message and we'll get back to you shortly.
-    </p>
-    <form id="contact-form" action="https://formspree.io/f/xdaazrzl" method="POST">
-        <div class="form-group">
-            <label>Your Email</label>
-            <input type="email" name="email" id="contact-email" required />
-        </div>
-        <div class="form-group">
-            <label>Message</label>
-            <textarea name="message" id="contact-msg" rows="4" required></textarea>
-        </div>
-        <button type="submit" class="btn-hero" style="width: 100%">
-            Send Message
-        </button>
-    </form>
-</div>
-
-<div id="successModal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.85); z-index:9999; align-items:center; justify-content:center;">
-    <div style="background:#111; padding:40px; border-radius:25px; border:1px solid #4caf50; text-align:center; max-width:400px; width:90%;">
-        <i class="fa-solid fa-circle-check" style="font-size:60px; color:#4caf50; margin-bottom:20px;"></i>
-        <h2 style="color:white; margin-bottom:10px;">Message Sent!</h2>
-        <p style="color:#aaa; margin-bottom:25px;">We appreciate your feedback and look forward to hearing more from you.</p>
-        <button onclick="document.getElementById('successModal').style.display='none'" class="btn-hero" style="width:100%">Close</button>
-    </div>
-</div>
-    </section>
     <script src="script.js"></script>
-  </body>
+</body>
+</html>
+</body>
 </html>

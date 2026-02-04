@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | ConnectRide</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body style="min-height: 100vh;">
+   <nav class="navbar">
+    <div class="logo-wrapper">
+        <a href="index.html" class="logo">Connect<span>Ride</span></a>
+        <p class="logo-subtext">+234 800 123 4567</p>
+    </div>
+    
+    <div class="nav-links">
+        <a href="find-ride.html" class="nav-btn">Find Ride</a>
+        <a href="about.html" class="nav-btn">About</a> 
+        <a href="about-founder.html" class="nav-btn">The Founder</a>
+        <a href="faq.html" class="nav-btn">FAQ</a>
+        <a href="contact.html" class="nav-btn">Contact</a>
+        <div id="auth-button-container"></div>  
+    </div>
+  </nav>
+
+    <section class="contact-section">
+        <div class="contact-container">
+            <div class="contact-info">
+                <h2>Get in Touch</h2>
+                <p>Have questions? Our team is here to help you 24/7.</p>
+                <div class="info-item"><i class="fa-solid fa-envelope"></i> support@connectride.com</div>
+                <div class="info-item"><i class="fa-solid fa-phone"></i> +234 800 123 4567</div>
+            </div>
+            <form id="contact-form" class="contact-form" action="https://formspree.io/f/YOUR_ID" method="POST">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Email Address" required>
+                <textarea name="message" rows="5" placeholder="How can we help?" required></textarea>
+                <button type="submit" class="btn-hero">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>

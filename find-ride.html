@@ -1,82 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>ConnectRide | Live Map</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-  <style>
-    .map-header { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 20px auto; padding: 0 20px; }
-    #map { height: 500px; width: 95%; max-width: 1200px; border-radius: 20px; margin: 10px auto; z-index: 1; }
-    .modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.7); z-index: 1000; align-items: center; justify-content: center; }
-    .modal-content { background: white; padding: 30px; border-radius: 20px; width: 90%; max-width: 400px; text-align: center; }
-    .modal-content input { width: 100%; padding: 12px; margin: 10px 0; border: 1px solid #ddd; border-radius: 10px; }
-  </style>
+    <meta charset="UTF-8">
+    <title>Find Ride | Live Map</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="style.css">
 </head>
-<body>
-  <nav class="navbar">
-   <a href="index.html" class="logo">Connect<span>Ride</span></a>
-    <div id="auth-button-container"></div>
-  </nav>
+<body style="min-height: 100vh;">
+    <nav class="navbar">
+        <a href="index.html" class="logo">Connect<span>Ride</span></a>
+        <div class="nav-links">
+            <a href="find-ride.html" class="nav-btn">Find Ride</a>
+            <a href="about.html" class="nav-btn">About</a> 
+            <a href="about-founder.html" class="nav-btn">The Founder</a>
+            <a href="faq.html" class="nav-btn">FAQ</a>
+            <a href="contact.html" class="nav-btn">Contact</a>
+            <div id="auth-button-container"></div>
+        </div>
+    </nav>
 
- <div class="map-header">
-  <h2>Available Rides</h2>
-  <button class="btn-signup-1" onclick="openOfferModal()">Offer a Ride</button>
-</div>
-  <div id="map"></div>
+    <div id="map"></div>
 
- <div id="offerModal" class="modal"> <div class="modal-content">
-    <h3>Post a Ride</h3>
-    <input type="text" id="drive-car" placeholder="Car Model">
-    <input type="text" id="drive-price" placeholder="Price">
-    <button class="btn-signup-1" style="width:100%" onclick="postRide()">Go Live</button>
-    <p onclick="closeModal()" style="cursor:pointer; margin-top:15px; text-decoration:underline;">Cancel</p>
-  </div>
-</div>
-
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-  <script src="script.js"></script>
-  <script>
-   const map = L.map('map').setView([6.4654, 3.4064], 12);
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
-
-const carIcon = L.divIcon({ 
-  html: '<i class="fa-solid fa-car-side" style="color:#4CAF50; font-size:24px;"></i>', 
-  className: 'custom-icon', iconSize:[30,30] 
-});
-
-function addMarker(n, c, p, lat, lng) {
-  L.marker([lat, lng], {icon: carIcon}).addTo(map).bindPopup(`
-    <div style="text-align:center;">
-      <h4>${n}</h4><p>${c}</p><strong>${p}</strong><br>
-      <button class="btn-signup-1" onclick="checkAuthAndBook('${n}','${c}')">Book Now</button>
-    </div>`);
-}
-
-// Markers
-addMarker("Tunde W.", "Toyota Corolla", "₦2,500", 6.4654, 3.4064);
-addMarker("Sarah J.", "Honda Civic", "₦3,000", 6.4454, 3.4864);
-addMarker("Emeka O.", "Lexus ES350", "₦4,500", 6.5244, 3.3792);
-
-// NEW: FUNCTIONAL BOOKING LOGIC
-function checkAuthAndBook(driver, car) {
-    if (localStorage.getItem("isLoggedIn") !== "true") {
-        alert("Please login to book!");
-        window.location.href = "login.html";
-        return;
-    }
-    const booking = { driver: driver, car: car, date: new Date().toLocaleDateString() };
-    localStorage.setItem("activeBooking", JSON.stringify(booking));
-    alert("Ride Booked! Redirecting to Profile...");
-    window.location.href = "profile.html";
-}
-
-    // Save to localStorage so profile.html can read it
-    localStorage.setItem("activeBooking", JSON.stringify(booking));
-    
-    alert(`Success! You have booked a ride with ${driver}. Redirecting to your profile...`);
-    window.location.href = "profile.html";
-  </script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
